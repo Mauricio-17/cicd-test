@@ -27,6 +27,7 @@ onMounted(async () => {
     <TheWelcome />
   </main>
   <hr>
+  <h1>List of people registered</h1>
   <ul>
     <li v-for="(person, index) in peopleList" :key="index">
       {{ person.name }} {{ person.lastName }}
