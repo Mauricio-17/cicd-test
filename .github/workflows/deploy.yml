@@ -74,12 +74,12 @@ jobs:
       - name: Update and commit app version in docker-compose.yaml
         run: |
           BUILD_NUMBER=${{steps.build-number.outputs.BUILD_NUMBER}}
-          echo -e "Current elasticbeanstalk/docker-compose.yml\n$(cat elasticbeanstalk/docker-compose.yml)"
-          sed -i -E 's_(mauricio17/springboot-cicd-test:)([^"]*)_\1'${BUILD_NUMBER}'_' elasticbeanstalk/docker-compose.yml
-          echo -e "Current elasticbeanstalk/docker-compose.yml\n$(cat elasticbeanstalk/docker-compose.yml)"
+          echo -e "Current ElasticBeanstalk/docker-compose.yml\n$(cat ElasticBeanstalk/docker-compose.yml)"
+          sed -i -E 's_(mauricio17/springboot-cicd-test:)([^"]*)_\1'${BUILD_NUMBER}'_' ElasticBeanstalk/docker-compose.yml
+          echo -e "Current ElasticBeanstalk/docker-compose.yml\n$(cat ElasticBeanstalk/docker-compose.yml)"
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add elasticbeanstalk/docker-compose.yml
+          git add ElasticBeanstalk/docker-compose.yml
           git commit -m "new app version: ${BUILD_NUMBER}"
           git push
 
