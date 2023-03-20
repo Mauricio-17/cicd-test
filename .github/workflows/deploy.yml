@@ -77,8 +77,8 @@ jobs:
           echo -e "Current ElasticBeanstalk/docker-compose.yml\n$(cat ElasticBeanstalk/docker-compose.yml)"
           sed -i -E 's_(mauricio17/springboot-cicd-test:)([^"]*)_\1'${BUILD_NUMBER}'_' ElasticBeanstalk/docker-compose.yml
           echo -e "Current ElasticBeanstalk/docker-compose.yml\n$(cat ElasticBeanstalk/docker-compose.yml)"
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config --global user.name mauricio_17
+          git config --global user.email mauricio_s7@outlook.com
           git add ElasticBeanstalk/docker-compose.yml
           git commit -m "new app version: ${BUILD_NUMBER}"
           git push
